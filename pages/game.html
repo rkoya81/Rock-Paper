@@ -1,0 +1,46 @@
+<main>
+  <section>
+    <h1>Rock Paper Scissors Game</h1>
+    <p>Please select an option from below</p>
+  </section>
+
+  <div class="player-container col-md-7">
+    <div class="selection">Your selection</div>
+    <ul class="moves">
+      <li ng-repeat="choice in gameOptions" class="move-images image-{{::choice}}" ng-click="selectedOption(choice);" ng-class="{'selected': activeMove(choice), 'unselected': faded(choice)}"><span class="move-type">{{::choice}}</span></li>
+    </ul>
+  </div>
+
+  <div class="robot-container col-md-4 col-md-offset-1" ng-show="robotValue">
+    <div class="selection">Computer selection</div>
+    <ul class="moves">
+      <li class="move-images image-{{robotValue}} selected"><span class="move-type">{{robotValue}}</span></li>
+    </ul>
+  </div>
+
+
+  <div class="results-container col-md-7">
+    <div class="selection">{{resultText}}</div>
+     <table class="table">
+       <thead>
+          <tr>
+             <th>Your Wins</th>
+             <th>Draw</th>
+             <th>Robot Wins</th>
+          </tr>
+       </thead>
+       <tbody>
+          <tr>
+             <td>{{scores.yourWins}}</td>
+             <td>{{scores.draws}}</td>
+             <td>{{scores.robotWins}}</td>
+          </tr>
+       </tbody>
+    </table>
+    <div class="winnerInfo">
+      <ul>
+      <li ng-repeat="winnerInfo in list track by $index">{{winnerInfo}}</li>
+      </ul>
+    </div>
+  </div>
+</main>
